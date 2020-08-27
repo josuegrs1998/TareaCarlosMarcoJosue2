@@ -26,5 +26,6 @@ namespace TareaCarlosMarcoJosue2.Models
         }
     
         public virtual DbSet<Person> Person { get; set; }
+        public virtual DbSet<VistaRecursosHumano> VistaRecursosHumanos { get; set; }
     }
 }

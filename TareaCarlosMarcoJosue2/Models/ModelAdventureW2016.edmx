@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AdventureWorks2016Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AdventureWorks2016Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Person">
           <Key>
             <PropertyRef Name="BusinessEntityID" />
@@ -23,11 +23,74 @@
           <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AdventureWorks2016.Person.VistaRecursosHumanos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VistaRecursosHumanos">
+          <Key>
+            <PropertyRef Name="PrimerNombre" />
+            <PropertyRef Name="SegundoNombre" />
+            <PropertyRef Name="Apellidos" />
+            <PropertyRef Name="Titulo" />
+            <PropertyRef Name="Genero" />
+            <PropertyRef Name="FechaContratacion" />
+            <PropertyRef Name="FechaNacimiento" />
+            <PropertyRef Name="TipoSalario" />
+            <PropertyRef Name="TasaSalario" />
+            <PropertyRef Name="FrecuenciaSalario" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="HorasIndemnizadas" />
+            <PropertyRef Name="HorasVacaiones" />
+            <PropertyRef Name="IDDepartamento" />
+            <PropertyRef Name="Departmento" />
+            <PropertyRef Name="GrupoDepartamento" />
+            <PropertyRef Name="IDTurno" />
+            <PropertyRef Name="Turno" />
+          </Key>
+          <Property Name="PrimerNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SegundoNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Titulo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Genero" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="FechaContratacion" Type="date" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+          <Property Name="TipoSalario" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="TasaSalario" Type="money" Nullable="false" />
+          <Property Name="FrecuenciaSalario" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="HorasIndemnizadas" Type="smallint" Nullable="false" />
+          <Property Name="HorasVacaiones" Type="smallint" Nullable="false" />
+          <Property Name="IDDepartamento" Type="smallint" Nullable="false" />
+          <Property Name="Departmento" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GrupoDepartamento" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDTurno" Type="tinyint" Nullable="false" />
+          <Property Name="Turno" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="AdventureWorks2016ModelStoreContainer">
           <EntitySet Name="Person" EntityType="Self.Person" Schema="Person" store:Type="Tables" />
+          <EntitySet Name="VistaRecursosHumanos" EntityType="Self.VistaRecursosHumanos" store:Type="Views" store:Schema="Person">
+            <DefiningQuery>SELECT 
+    [VistaRecursosHumanos].[PrimerNombre] AS [PrimerNombre], 
+    [VistaRecursosHumanos].[SegundoNombre] AS [SegundoNombre], 
+    [VistaRecursosHumanos].[Apellidos] AS [Apellidos], 
+    [VistaRecursosHumanos].[Titulo] AS [Titulo], 
+    [VistaRecursosHumanos].[Genero] AS [Genero], 
+    [VistaRecursosHumanos].[FechaContratacion] AS [FechaContratacion], 
+    [VistaRecursosHumanos].[FechaNacimiento] AS [FechaNacimiento], 
+    [VistaRecursosHumanos].[TipoSalario] AS [TipoSalario], 
+    [VistaRecursosHumanos].[TasaSalario] AS [TasaSalario], 
+    [VistaRecursosHumanos].[FrecuenciaSalario] AS [FrecuenciaSalario], 
+    [VistaRecursosHumanos].[Estado] AS [Estado], 
+    [VistaRecursosHumanos].[HorasIndemnizadas] AS [HorasIndemnizadas], 
+    [VistaRecursosHumanos].[HorasVacaiones] AS [HorasVacaiones], 
+    [VistaRecursosHumanos].[IDDepartamento] AS [IDDepartamento], 
+    [VistaRecursosHumanos].[Departmento] AS [Departmento], 
+    [VistaRecursosHumanos].[GrupoDepartamento] AS [GrupoDepartamento], 
+    [VistaRecursosHumanos].[IDTurno] AS [IDTurno], 
+    [VistaRecursosHumanos].[Turno] AS [Turno]
+    FROM [Person].[VistaRecursosHumanos] AS [VistaRecursosHumanos]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AdventureWorks2016Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -51,7 +114,48 @@
         </EntityType>
         <EntityContainer Name="AdventureWorks2016Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="VistaRecursosHumanos" EntityType="AdventureWorks2016Model.VistaRecursosHumano" />
         </EntityContainer>
+        <EntityType Name="VistaRecursosHumano">
+          <Key>
+            <PropertyRef Name="PrimerNombre" />
+            <PropertyRef Name="SegundoNombre" />
+            <PropertyRef Name="Apellidos" />
+            <PropertyRef Name="Titulo" />
+            <PropertyRef Name="Genero" />
+            <PropertyRef Name="FechaContratacion" />
+            <PropertyRef Name="FechaNacimiento" />
+            <PropertyRef Name="TipoSalario" />
+            <PropertyRef Name="TasaSalario" />
+            <PropertyRef Name="FrecuenciaSalario" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="HorasIndemnizadas" />
+            <PropertyRef Name="HorasVacaiones" />
+            <PropertyRef Name="IDDepartamento" />
+            <PropertyRef Name="Departmento" />
+            <PropertyRef Name="GrupoDepartamento" />
+            <PropertyRef Name="IDTurno" />
+            <PropertyRef Name="Turno" />
+          </Key>
+          <Property Name="PrimerNombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SegundoNombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Titulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Genero" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="FechaContratacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TipoSalario" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="TasaSalario" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="FrecuenciaSalario" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="HorasIndemnizadas" Type="Int16" Nullable="false" />
+          <Property Name="HorasVacaiones" Type="Int16" Nullable="false" />
+          <Property Name="IDDepartamento" Type="Int16" Nullable="false" />
+          <Property Name="Departmento" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GrupoDepartamento" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDTurno" Type="Byte" Nullable="false" />
+          <Property Name="Turno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -74,6 +178,30 @@
                 <ScalarProperty Name="Demographics" ColumnName="Demographics" />
                 <ScalarProperty Name="rowguid" ColumnName="rowguid" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VistaRecursosHumanos">
+            <EntityTypeMapping TypeName="AdventureWorks2016Model.VistaRecursosHumano">
+              <MappingFragment StoreEntitySet="VistaRecursosHumanos">
+                <ScalarProperty Name="Turno" ColumnName="Turno" />
+                <ScalarProperty Name="IDTurno" ColumnName="IDTurno" />
+                <ScalarProperty Name="GrupoDepartamento" ColumnName="GrupoDepartamento" />
+                <ScalarProperty Name="Departmento" ColumnName="Departmento" />
+                <ScalarProperty Name="IDDepartamento" ColumnName="IDDepartamento" />
+                <ScalarProperty Name="HorasVacaiones" ColumnName="HorasVacaiones" />
+                <ScalarProperty Name="HorasIndemnizadas" ColumnName="HorasIndemnizadas" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FrecuenciaSalario" ColumnName="FrecuenciaSalario" />
+                <ScalarProperty Name="TasaSalario" ColumnName="TasaSalario" />
+                <ScalarProperty Name="TipoSalario" ColumnName="TipoSalario" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="FechaContratacion" ColumnName="FechaContratacion" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="SegundoNombre" ColumnName="SegundoNombre" />
+                <ScalarProperty Name="PrimerNombre" ColumnName="PrimerNombre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
