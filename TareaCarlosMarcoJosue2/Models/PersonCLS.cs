@@ -8,13 +8,25 @@ namespace TareaCarlosMarcoJosue2.Models
 {
     public class PersonCLS
     {
-        [Display(Name="Nombre")]
-        public string FirstName {get; set;}
+        [Display(Name="Titulo")]
+        public string Titulo {get; set;}
 
-        [Display(Name = "Apellido")]
-        public string LastName{get; set;}
+        [Display(Name = "Nombre Completo")]
+        public string NombreCompleto{get; set;}
 
-        [Display(Name = "Tipo de Persona")]
-        public string PersonType{get; set;}
+        [Display(Name = "Correo")]
+        public string Correo{get; set;}
+
+        [Display(Name = "Numero de telefono")]
+        public string PhoneNumber { get; set; }
+
+        [Display(Name = "Ciudad")]
+        public string City { get; set; }
+
+        [Display(Name = "Direccion ")]
+        public string AddressLine1 { get; set; }
+
+        [Display(Name = "Estado")]
+        public string Name { get; set; }
     }
 }

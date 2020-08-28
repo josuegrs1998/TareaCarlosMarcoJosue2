@@ -13,19 +13,22 @@ namespace TareaCarlosMarcoJosue2.Controllers
         List<PersonCLS> listPerson = null;
         public ActionResult PersonView()
         {
-            using (var bd = new AdventureWorks2016Entities())
+            using (var bd = new ModelAdventureW20162())
             {
-                listPerson = (from P in bd.Person
+                listPerson = (from P in bd.VistaPersonas
                               select new PersonCLS 
                               {
-                                  FirstName = P.FirstName,
-                                  LastName = P.LastName,
-                                  PersonType = P.PersonType
+                                  Titulo = P.Titulo,
+                                  NombreCompleto = P.NombreCompleto,
+                                  Correo = P.Correo,
+                                  PhoneNumber = P.PhoneNumber,
+                                  City = P.City,
+                                  AddressLine1 = P.AddressLine1,
+                                  Name = P.Name
 
-                              }).Take(15).ToList();
+                              }).Take(20).ToList();
             }
 
-       
 
             return View(listPerson);
         }

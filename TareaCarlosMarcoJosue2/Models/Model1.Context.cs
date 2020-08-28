@@ -13,10 +13,10 @@ namespace TareaCarlosMarcoJosue2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AdventureWorks2016Entities : DbContext
+    public partial class ModelAdventureW20162 : DbContext
     {
-        public AdventureWorks2016Entities()
-            : base("name=AdventureWorks2016Entities")
+        public ModelAdventureW20162()
+            : base("name=ModelAdventureW20162")
         {
         }
     
@@ -25,7 +25,7 @@ namespace TareaCarlosMarcoJosue2.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Person> Person { get; set; }
+        public virtual DbSet<VistaPersona> VistaPersonas { get; set; }
         public virtual DbSet<VistaRecursosHumano> VistaRecursosHumanos { get; set; }
     }
 }

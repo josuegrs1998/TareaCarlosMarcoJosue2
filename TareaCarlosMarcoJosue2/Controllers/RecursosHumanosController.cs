@@ -14,7 +14,7 @@ namespace TareaCarlosMarcoJosue2.Controllers
         // GET: RecursosHumanos
         public ActionResult RecursosHumanosView()
         {
-            using (var bd = new AdventureWorks2016Entities())
+            using (var bd = new ModelAdventureW20162())
             {
                 listaRecursosHumanos = (from U in bd.VistaRecursosHumanos
                                         select new RecursosHumanosCLS
