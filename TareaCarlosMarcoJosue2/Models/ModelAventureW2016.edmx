@@ -4,9 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AdventureWorks2016Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'AdventureWorks2016.Person.VistaPersonas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+      <Schema Namespace="AdventureWorks2016Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'AdventureWorks2016.Person.VistaPersonas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VistaPersonas">
           <Key>
             <PropertyRef Name="Titulo" />
@@ -23,8 +23,8 @@ warning 6002: The table/view 'AdventureWorks2016.Person.VistaPersonas' does not 
           <Property Name="AddressLine1" Type="nvarchar" MaxLength="60" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'AdventureWorks2016.Person.VistaRecursosHumanos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'AdventureWorks2016.Person.VistaRecursosHumanos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VistaRecursosHumanos">
           <Key>
             <PropertyRef Name="PrimerNombre" />
@@ -65,7 +65,24 @@ warning 6002: The table/view 'AdventureWorks2016.Person.VistaRecursosHumanos' do
           <Property Name="IDTurno" Type="tinyint" Nullable="false" />
           <Property Name="Turno" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="AdventureWorks2016Model1StoreContainer">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'AdventureWorks2016.Production.VistaProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VistaProducto">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="Producto" />
+            <PropertyRef Name="NumeroDeProducto" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Producto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumeroDeProducto" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" MaxLength="15" />
+          <Property Name="SubCategoria" Type="nvarchar" MaxLength="50" />
+          <Property Name="Categoria" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cantidad" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="400" />
+        </EntityType>
+        <EntityContainer Name="AdventureWorks2016ModelStoreContainer">
           <EntitySet Name="VistaPersonas" EntityType="Self.VistaPersonas" store:Type="Views" store:Schema="Person">
             <DefiningQuery>SELECT 
     [VistaPersonas].[Titulo] AS [Titulo], 
@@ -99,13 +116,25 @@ warning 6002: The table/view 'AdventureWorks2016.Person.VistaRecursosHumanos' do
     [VistaRecursosHumanos].[Turno] AS [Turno]
     FROM [Person].[VistaRecursosHumanos] AS [VistaRecursosHumanos]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VistaProducto" EntityType="Self.VistaProducto" store:Type="Views" store:Schema="Production">
+            <DefiningQuery>SELECT 
+    [VistaProducto].[ProductID] AS [ProductID], 
+    [VistaProducto].[Producto] AS [Producto], 
+    [VistaProducto].[NumeroDeProducto] AS [NumeroDeProducto], 
+    [VistaProducto].[Color] AS [Color], 
+    [VistaProducto].[SubCategoria] AS [SubCategoria], 
+    [VistaProducto].[Categoria] AS [Categoria], 
+    [VistaProducto].[Cantidad] AS [Cantidad], 
+    [VistaProducto].[Description] AS [Description]
+    FROM [Production].[VistaProducto] AS [VistaProducto]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AdventureWorks2016Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="VistaPersona">
+      <Schema Namespace="AdventureWorks2016Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="VistaPersonas">
           <Key>
             <PropertyRef Name="Titulo" />
             <PropertyRef Name="PhoneNumber" />
@@ -121,7 +150,7 @@ warning 6002: The table/view 'AdventureWorks2016.Person.VistaRecursosHumanos' do
           <Property Name="AddressLine1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityType Name="VistaRecursosHumano">
+        <EntityType Name="VistaRecursosHumanos">
           <Key>
             <PropertyRef Name="PrimerNombre" />
             <PropertyRef Name="SegundoNombre" />
@@ -161,18 +190,34 @@ warning 6002: The table/view 'AdventureWorks2016.Person.VistaRecursosHumanos' do
           <Property Name="IDTurno" Type="Byte" Nullable="false" />
           <Property Name="Turno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="ModelAdventureW20162" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="VistaPersonas" EntityType="Self.VistaPersona" />
-          <EntitySet Name="VistaRecursosHumanos" EntityType="Self.VistaRecursosHumano" />
+        <EntityType Name="VistaProducto">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="Producto" />
+            <PropertyRef Name="NumeroDeProducto" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumeroDeProducto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="SubCategoria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cantidad" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="AdventureWorks2016Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="VistaPersonas" EntityType="Self.VistaPersonas" />
+          <EntitySet Name="VistaRecursosHumanos" EntityType="Self.VistaRecursosHumanos" />
+          <EntitySet Name="VistaProducto" EntityType="Self.VistaProducto" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AdventureWorks2016Model1StoreContainer" CdmEntityContainer="ModelAdventureW20162">
+        <EntityContainerMapping StorageEntityContainer="AdventureWorks2016ModelStoreContainer" CdmEntityContainer="AdventureWorks2016Entities1">
           <EntitySetMapping Name="VistaPersonas">
-            <EntityTypeMapping TypeName="AdventureWorks2016Model1.VistaPersona">
+            <EntityTypeMapping TypeName="AdventureWorks2016Model.VistaPersonas">
               <MappingFragment StoreEntitySet="VistaPersonas">
                 <ScalarProperty Name="Titulo" ColumnName="Titulo" />
                 <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
@@ -185,7 +230,7 @@ warning 6002: The table/view 'AdventureWorks2016.Person.VistaRecursosHumanos' do
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VistaRecursosHumanos">
-            <EntityTypeMapping TypeName="AdventureWorks2016Model1.VistaRecursosHumano">
+            <EntityTypeMapping TypeName="AdventureWorks2016Model.VistaRecursosHumanos">
               <MappingFragment StoreEntitySet="VistaRecursosHumanos">
                 <ScalarProperty Name="PrimerNombre" ColumnName="PrimerNombre" />
                 <ScalarProperty Name="SegundoNombre" ColumnName="SegundoNombre" />
@@ -208,6 +253,20 @@ warning 6002: The table/view 'AdventureWorks2016.Person.VistaRecursosHumanos' do
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="VistaProducto">
+            <EntityTypeMapping TypeName="AdventureWorks2016Model.VistaProducto">
+              <MappingFragment StoreEntitySet="VistaProducto">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="NumeroDeProducto" ColumnName="NumeroDeProducto" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="SubCategoria" ColumnName="SubCategoria" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -222,10 +281,10 @@ warning 6002: The table/view 'AdventureWorks2016.Person.VistaRecursosHumanos' do
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

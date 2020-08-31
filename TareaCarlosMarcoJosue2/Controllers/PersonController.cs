@@ -13,7 +13,7 @@ namespace TareaCarlosMarcoJosue2.Controllers
         List<PersonCLS> listPerson = null;
         public ActionResult PersonView()
         {
-            using (var bd = new ModelAdventureW20162())
+            using (var bd = new AdventureWorks2016Entities1())
             {
                 listPerson = (from P in bd.VistaPersonas
                               select new PersonCLS 

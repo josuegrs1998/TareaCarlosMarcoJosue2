@@ -127,33 +127,38 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\RecursosHumanosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.Context.cs">
+    <Compile Include="Models\ModelAventureW2016.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>ModelAventureW2016.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.cs">
+    <Compile Include="Models\ModelAventureW2016.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelAventureW2016.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelAdventureW2016.Designer.cs">
+    <Compile Include="Models\ModelAventureW2016.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelAdventureW2016.edmx</DependentUpon>
+      <DependentUpon>ModelAventureW2016.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\PersonCLS.cs" />
+    <Compile Include="Models\ProductoCLS.cs" />
     <Compile Include="Models\RecursosHumanosCLS.cs" />
-    <Compile Include="Models\VistaPersona.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\VistaPersonas.cs">
+      <DependentUpon>ModelAventureW2016.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\VistaRecursosHumano.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\VistaProducto.cs">
+      <DependentUpon>ModelAventureW2016.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VistaRecursosHumanos.cs">
+      <DependentUpon>ModelAventureW2016.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -166,24 +171,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\ModelAventureW2016.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelAdventureW2016.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>ModelAventureW2016.edmx</DependentUpon>
+      <LastGenOutput>ModelAventureW2016.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\ModelAventureW2016.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelAdventureW2016.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>ModelAventureW2016.edmx</DependentUpon>
+      <LastGenOutput>ModelAventureW2016.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\ModelAdventureW2016.edmx">
+    <EntityDeploy Include="Models\ModelAventureW2016.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelAdventureW2016.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelAventureW2016.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ModelAdventureW2016.edmx.diagram">
-      <DependentUpon>ModelAdventureW2016.edmx</DependentUpon>
+    <Content Include="Models\ModelAventureW2016.edmx.diagram">
+      <DependentUpon>ModelAventureW2016.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -196,6 +201,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SQLScripts\ViewProducto.sql" />
     <Content Include="SQLScripts\ViewPersonas.sql" />
     <Content Include="SQLScripts\CreateViewRRHH.sql" />
     <Content Include="Web.config" />
@@ -214,6 +220,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\RecursosHumanos\RecursosHumanosView.cshtml" />
     <Content Include="Views\Person\PersonView.cshtml" />
+    <Content Include="Views\Producto\ProductoView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
